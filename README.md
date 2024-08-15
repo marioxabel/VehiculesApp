@@ -1,10 +1,10 @@
 ![Static Badge](https://img.shields.io/badge/license-MIT-blue?style=flat)
 
-# README generator
+# Vehicles App
 
 ## Description
-This node application to manage different vehicles and have different interactions depending on the vehicle type. 
-- [walkthrough video](https://drive.google.com/file/d/1kbYiUCYSOf7tor6cKCjbNYz-LsTeWOb2/view?usp=sharing)
+This node application helps to manage different vehicles and have different interactions depending on the vehicle type. 
+- [walkthrough video](https://drive.google.com/file/d/1mo8aW66moc4bC6afeWm1XbzACvWNnZ8p/view?usp=sharing)
 
 ## Table of Contents
 - [Installation](#installation)
@@ -31,7 +31,7 @@ To contribute create a branch and open a pull request commenting the changes you
 You can reach me for questions at [gihub profile](https://github.com/marioxabel)
 
 ## Authors and acknowledgment
-- Author: [gihub profile](https://github.com/marioxabel)
+- Author: [Mario](https://github.com/marioxabel)
 - This was a challenge for the [Tecnológico de Monterrey Coding Boot Camp](https://bootcamp.tec.mx/coding/)
 
 ## License
