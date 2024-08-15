@@ -1,4 +1,5 @@
 // importing classes from other files
+import colors from 'colors';
 import inquirer from "inquirer";
 import Truck from "./Truck.js";
 import Car from "./Car.js";
@@ -109,6 +110,7 @@ class Cli {
             // set the selectedVehicleVin to the vin of the car
             this.selectedVehicleVin = car.vin;
             // perform actions on the car
+            console.log(colors.green(`Car created succesfully!`));
             this.performActions();
         });
     }
@@ -162,6 +164,7 @@ class Cli {
             Cli.generateVin(), answers.color, answers.make, answers.model, parseInt(answers.year), parseInt(answers.weight), parseInt(answers.topSpeed), [], parseInt(answers.towingCapacity));
             this.vehicles.push(truck);
             this.selectedVehicleVin = truck.vin;
+            console.log(colors.green(`Truck created succesfully!`));
             this.performActions();
         });
     }
@@ -230,6 +233,7 @@ class Cli {
             Cli.generateVin(), answers.color, answers.make, answers.model, parseInt(answers.year), parseInt(answers.weight), parseInt(answers.topSpeed), []);
             this.vehicles.push(motorbike);
             this.selectedVehicleVin = motorbike.vin;
+            console.log(colors.green(`Motorbike created succesfully!`));
             this.performActions();
         });
     }
@@ -254,11 +258,16 @@ class Cli {
             // TODO: check if the selected vehicle is the truck
             // TODO: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
             // TODO: if it is not, tow the selected vehicle then perform actions on the truck to allow the user to select another action
-            if (answers.vehicle === truck) {
-                console.log('truck cannot tow itself');
+            const selectedVehicle = answers.vehicleToTow;
+            // Check if the selected vehicle is the same instance as the truck
+            if (selectedVehicle.vin === truck.vin) {
+                console.error('Truck cannot tow itself');
+                this.performActions(); // Return to allow the user to select another action
             }
-            truck.tow(answers.vehicle);
-            this.performActions();
+            else {
+                truck.tow(selectedVehicle); // Pass the vehicle object for towing
+                this.performActions(); // Return to allow the user to select another action
+            }
         });
     }
     // method to perform actions on a vehicle
@@ -363,17 +372,16 @@ class Cli {
                     return;
                 }
                 else {
-                    console.log('The selected vehicle is not a truck and cannot tow.');
+                    console.error('The selected vehicle is not a truck and cannot tow.');
                 }
             }
             // TODO: add statements to perform the wheelie action only if the selected vehicle is a motorbike
             else if (answers.action === 'wheelie') {
                 if (selectedVehicle instanceof Motorbike) {
                     selectedVehicle.wheelie();
-                    return;
                 }
                 else {
-                    console.log('The selected vehicle is not a motorbike and cannot do a wheelie.');
+                    console.error('The selected vehicle is not a motorbike and cannot do a wheelie.');
                 }
             }
             else if (answers.action === 'Select or create another vehicle') {

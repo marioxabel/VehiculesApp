@@ -1,4 +1,5 @@
 // import the Vehicle, Motorbike, Car, Wheel, and AbleToTow classes/interfaces
+import colors from 'colors';
 import Vehicle from './Vehicle.js';
 import Wheel from './Wheel.js';
 // TODO: The Truck class should extend the Vehicle class and should implement the AbleToTow interface
@@ -33,10 +34,10 @@ class Truck extends Vehicle {
         if (vehicle) {
             const { make, model, weight } = vehicle;
             if (weight <= this.towingCapacity) {
-                console.log(`${make} ${model} is being towed`);
+                console.log(colors.green(`${make} ${model} is being towed`));
             }
             else {
-                console.log(`${make} ${model} is too heavy to be towed`);
+                console.error(`${make} ${model} is too heavy to be towed`);
             }
         }
     }

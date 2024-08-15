@@ -1,3 +1,5 @@
+// Importing Vehicle and Wheel classes
+import colors from 'colors';
 import Vehicle from './Vehicle.js';
 import Wheel from './Wheel.js';
 // TODO: The Motorbike class should extend the Vehicle class
@@ -25,7 +27,7 @@ class Motorbike extends Vehicle {
     // TODO: Implement the wheelie method
     // TODO: The method should log the message "Motorbike [make] [model] is doing a wheelie!"
     wheelie() {
-        console.log(`Motorbike ${this.make} ${this.model} is doing a wheelie!`);
+        console.log(colors.green(`Motorbike ${this.make} ${this.model} is doing a wheelie!`));
     }
     // TODO: Override the printDetails method from the Vehicle class
     // TODO: The method should call the printDetails method of the parent class

@@ -1,4 +1,5 @@
 // import the Vehicle, Motorbike, Car, Wheel, and AbleToTow classes/interfaces
+import colors from 'colors'
 import Vehicle from './Vehicle.js';
 import Motorbike from './Motorbike.js';
 import Car from './Car.js';
@@ -59,9 +60,9 @@ class Truck extends Vehicle implements AbleToTow {
     if (vehicle) {
       const {make, model, weight} = vehicle
       if (weight <= this.towingCapacity) {
-        console.log(`${make} ${model} is being towed`);
+        console.log(colors.green(`${make} ${model} is being towed`));
       } else {
-        console.log(`${make} ${model} is too heavy to be towed`);
+        console.error(`${make} ${model} is too heavy to be towed`);
       }
     }
 
